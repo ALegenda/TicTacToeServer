@@ -1,6 +1,6 @@
 let localDB;
-let dbconnection = 'mongodb://localhost';
-//let dbconnection = 'mongodb://TomKuper:dbpass123@ds257590.mlab.com:57590/heroku_7p4gbl1m';
+//let dbconnection = 'mongodb://localhost';
+let dbconnection = 'mongodb://TomKuper:dbpass123@ds257590.mlab.com:57590/heroku_7p4gbl1m';
 const express = require('express');
 const app = express();
 
