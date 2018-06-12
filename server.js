@@ -1,6 +1,6 @@
 let localDB;
-//let dbconnection = 'mongodb://localhost';
-let dbconnection = 'mongodb://TomKuper:dbpass123@ds257590.mlab.com:57590/heroku_7p4gbl1m';
+let dbconnection = 'mongodb://localhost';
+//let dbconnection = 'mongodb://TomKuper:dbpass123@ds257590.mlab.com:57590/heroku_7p4gbl1m';
 const express = require('express');
 const app = express();
 
@@ -37,7 +37,7 @@ function databaseStore(message, timeStamp)
         if (err)
             return console.log(err);
 
-        console.log('saved to database', result);
+        console.log('saved to database');
     });
 }
 
@@ -59,6 +59,7 @@ io.on('connection', (socket) =>
             text: message,
             date: timeStamp
         });
+        console.log("message got -",message);
         // Function above that stores the message in the database
         databaseStore(message, timeStamp);
     });
