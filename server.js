@@ -1,6 +1,6 @@
 let localDB;
-let dbconnection = 'mongodb://localhost';
-
+//let dbconnection = 'mongodb://localhost';
+let dbconnection = 'mongodb://TomKuper:dbpass123@ds257590.mlab.com:57590/heroku_7p4gbl1m';
 const express = require('express');
 const app = express();
 
@@ -18,7 +18,7 @@ MongoClient.connect(dbconnection, (err, database) =>
     if (err)
         return console.log(err);
 
-    localDB = database.db('tictactoe');
+    localDB = database.db('heroku_7p4gbl1m');
     app.listen(0, () =>
     {
         console.log('MONGODB listening on 3000')
