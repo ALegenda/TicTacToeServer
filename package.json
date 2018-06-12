@@ -2,7 +2,8 @@
   "name": "TicTakToe-Server",
   "version": "0.0.1",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
