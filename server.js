@@ -43,6 +43,8 @@ function databaseStore(message, timeStamp)
 
 app.get('/', (req, res) => res.send('Chat Server'));
 
+let isX = true;
+
 io.on('connection', (socket) =>
 {
 
@@ -62,6 +64,22 @@ io.on('connection', (socket) =>
         console.log("message got -",message);
         // Function above that stores the message in the database
         databaseStore(message, timeStamp);
+    });
+
+    socket.on('make-turn', (turn) =>
+    {
+
+        io.emit('turn', {
+            col: turn.split(',')[0],
+            row: turn.split(',')[1],
+            isX: isX
+        });
+
+        isX = !isX;
+
+        console.log("message got -", turn);
+        // Function above that stores the message in the database
+        //databaseStore(message, timeStamp);
     });
 
 });
